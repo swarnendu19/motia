@@ -12,7 +12,7 @@
 </p>
 
 <p align="center">
-  <strong>🔥 A Modern Unified Backend Framework for APIs, Events and Agents 🔥</strong>
+  <strong>🔥 A Modern Unified Backend Framework for APIs, background jobs, workflows, and Agents 🔥</strong>
 </p>
 
 <p align="center">
