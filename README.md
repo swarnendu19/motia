@@ -1,35 +1,8 @@
+![Github Readme Banner](packages/docs/public/github-readme-banner.png)
+
 <p align="center">
   <a href="https://trendshift.io/repositories/14032">
     <img src="https://trendshift.io/api/badge/repositories/14032" alt="Motia" style="width: 250px; height: 55px;" width="250" height="55"/>
-  </a>
-</p>
-
-<p align="center">
-  <!-- shows in LIGHT mode only -->
-  <img src="assets/motia-logo-dark.png#gh-light-mode-only"  width="400" alt="Motia logo" />
-  <!-- shows in DARK mode only -->
-  <img src="assets/motia-logo-light.png#gh-dark-mode-only" width="400" alt="Motia logo (dark)" />
-</p>
-
-<p align="center">
-  <strong>🔥 A Modern Unified Backend Framework for APIs, background jobs, workflows, and Agents 🔥</strong>
-</p>
-
-<p align="center">
-  <a href="https://www.npmjs.com/package/motia">
-    <img src="https://img.shields.io/npm/v/motia?style=flat&logo=npm&logoColor=white&color=CB3837&labelColor=000000" alt="npm version">
-  </a>
-  <a href="https://github.com/MotiaDev/motia/blob/main/LICENSE">
-    <img src="https://img.shields.io/badge/license-MIT-green?style=flat&logo=opensourceinitiative&logoColor=white&labelColor=000000" alt="license">
-  </a>
-  <a href="https://github.com/MotiaDev/motia">
-    <img src="https://img.shields.io/github/stars/MotiaDev/motia?style=flat&logo=github&logoColor=white&color=yellow&labelColor=000000" alt="GitHub stars">
-  </a>
-  <a href="https://twitter.com/motiadev" target="_blank">
-    <img src="https://img.shields.io/badge/Follow-@motiadev-1DA1F2?style=flat&logo=twitter&logoColor=white&labelColor=000000" alt="Twitter Follow">
-  </a>
-  <a href="https://discord.com/invite/nJFfsH5d6v" target="_blank">
-    <img src="https://img.shields.io/discord/1322278831184281721?style=flat&logo=discord&logoColor=white&color=5865F2&label=Discord&labelColor=000000" alt="Discord">
   </a>
 </p>
 
@@ -93,6 +66,36 @@ Motia unifies your entire backend into a **unified state**. APIs, background job
 | **`noop`**  | None                  | Placeholder for manual/external tasks |
 
 ---
+
+<p align="center">
+  <!-- shows in LIGHT mode only -->
+  <img src="assets/motia-logo-dark.png#gh-light-mode-only"  width="400" alt="Motia logo" />
+  <!-- shows in DARK mode only -->
+  <img src="assets/motia-logo-light.png#gh-dark-mode-only" width="400" alt="Motia logo (dark)" />
+</p>
+
+<p align="center">
+  <strong>🔥 A Modern Unified Backend Framework for APIs, background jobs, workflows, and Agents 🔥</strong>
+</p>
+
+<p align="center">
+  <a href="https://www.npmjs.com/package/motia">
+    <img src="https://img.shields.io/npm/v/motia?style=flat&logo=npm&logoColor=white&color=CB3837&labelColor=000000" alt="npm version">
+  </a>
+  <a href="https://github.com/MotiaDev/motia/blob/main/LICENSE">
+    <img src="https://img.shields.io/badge/license-MIT-green?style=flat&logo=opensourceinitiative&logoColor=white&labelColor=000000" alt="license">
+  </a>
+  <a href="https://github.com/MotiaDev/motia">
+    <img src="https://img.shields.io/github/stars/MotiaDev/motia?style=flat&logo=github&logoColor=white&color=yellow&labelColor=000000" alt="GitHub stars">
+  </a>
+  <a href="https://twitter.com/motiadev" target="_blank">
+    <img src="https://img.shields.io/badge/Follow-@motiadev-1DA1F2?style=flat&logo=twitter&logoColor=white&labelColor=000000" alt="Twitter Follow">
+  </a>
+  <a href="https://discord.com/invite/nJFfsH5d6v" target="_blank">
+    <img src="https://img.shields.io/discord/1322278831184281721?style=flat&logo=discord&logoColor=white&color=5865F2&label=Discord&labelColor=000000" alt="Discord">
+  </a>
+</p>
+
 
 ### 🤔 How it Works
 
