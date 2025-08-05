@@ -25,7 +25,7 @@
   <a href="https://twitter.com/motiadev" target="_blank">
     <img src="https://img.shields.io/badge/Follow-@motiadev-1DA1F2?style=flat&logo=twitter&logoColor=white&labelColor=000000" alt="Twitter Follow">
   </a>
-  <a href="https://discord.com/invite/nJFfsH5d6v" target="_blank">
+  <a href="https://discord.gg/motia" target="_blank">
     <img src="https://img.shields.io/discord/1322278831184281721?style=flat&logo=discord&logoColor=white&color=5865F2&label=Discord&labelColor=000000" alt="Discord">
   </a>
 </p>
@@ -223,10 +223,10 @@ Write steps in your preferred language:
 
 ### 💬 **Get Help**
 
-- **📋 Questions**: Use our [Discord community](https://discord.gg/7rXsekMK)
+- **📋 Questions**: Use our [Discord community](https://discord.gg/motia)
 - **🐛 Bug Reports**: [GitHub Issues](https://github.com/MotiaDev/motia/issues)
 - **📖 Documentation**: [Official Docs](https://motia.dev/docs)
-- **🎥 Blog**: [Motia Blog](https://dev.to/motiadev)
+- **🎥 Blog**: [Motia Blog](https://blog.motia.dev)
 
 ### 🤝 **Contributing**
 
