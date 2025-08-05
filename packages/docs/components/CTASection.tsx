@@ -2,7 +2,7 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import RiveAnimation from './RiveAnimation'
-import motiaPlaque from '@/public/images/landing/motiaPlaque.webp'
+import motiaPlaque from '@/public/images/landing/motiaPlaque.png'
 import { Alignment, Fit } from '@rive-app/react-webgl2'
 import Title from './Title'
 import SectionAppearAnimation from './SectionAppearAnimation'
