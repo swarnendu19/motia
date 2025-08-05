@@ -15,6 +15,7 @@ const updated = colors.yellow('➜ [UPDATED]')
 const removed = colors.red('➜ [REMOVED]')
 const invalidEmit = colors.red('➜ [INVALID EMIT]')
 const error = colors.red('[ERROR]')
+const warning = colors.yellow('[WARNING]')
 
 export class Printer {
   constructor(private readonly baseDir: string) {}
@@ -67,6 +68,12 @@ export class Printer {
 
   printStreamRemoved(stream: Stream) {
     console.log(`${removed} ${streamTag} ${this.getStreamPath(stream)} removed`)
+  }
+
+  printInvalidEmitConfiguration(step: Step, emit: string) {
+    console.log(
+      `${warning} ${stepTag} ${this.getStepType(step)} ${this.getStepPath(step)} emits to ${colors.yellow(emit)}, but there is no subscriber defined`,
+    )
   }
 
   printInvalidSchema(topic: string, step: Step[]) {

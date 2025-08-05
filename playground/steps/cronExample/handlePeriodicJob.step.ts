@@ -1,14 +1,19 @@
-import { CronHandler } from 'motia'
+import { CronConfig, Handlers } from 'motia'
 
-export const config = {
-  type: 'event',
+export const config: CronConfig = {
+  type: 'cron',
   name: 'HandlePeriodicJob',
   description: 'Handles the periodic job event',
-  subscribes: ['cron-ticked'],
-  emits: [],
+  cron: '0 */1 * * *',
+  emits: ['periodic-job-handled'],
   flows: ['cron-example'],
 }
 
-export const handler: CronHandler = async ({ logger }) => {
+export const handler: Handlers['HandlePeriodicJob'] = async ({ logger, emit }) => {
   logger.info('Periodic job executed')
+
+  await emit({
+    topic: 'periodic-job-handled',
+    data: { message: 'Periodic job executed' },
+  })
 }

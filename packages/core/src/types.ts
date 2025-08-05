@@ -87,7 +87,7 @@ export type ApiRouteConfig = {
   includeFiles?: string[]
 }
 
-export type ApiRequest<TBody = unknown> = {
+export interface ApiRequest<TBody = unknown> {
   pathParams: Record<string, string>
   queryParams: Record<string, string | string[]>
   body: TBody
@@ -173,6 +173,5 @@ export type Flow = {
   steps: Step[]
 }
 
-export type Handlers = {
-  [key: string]: StepHandler<StepConfig>
-}
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
+export interface Handlers {}

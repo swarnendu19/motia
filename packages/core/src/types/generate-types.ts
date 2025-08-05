@@ -17,7 +17,7 @@ export const generateTypesString = (handlers: HandlersMap, streams: StreamsMap):
  * 
  * Consider adding this file to .prettierignore and eslint ignore.
  */
-import { EventHandler, ApiRouteHandler, ApiResponse, MotiaStream } from 'motia'
+import { EventHandler, ApiRouteHandler, ApiResponse, CronHandler, MotiaStream } from 'motia'
 
 declare module 'motia' {
   interface FlowContextStateStreams {
@@ -27,7 +27,7 @@ declare module 'motia' {
       .trim()}
   }
 
-  type Handlers = {
+  interface Handlers {
     ${Object.entries(handlers)
       .map(([key, { type, generics }]) => `'${key}': ${type}<${generics.join(', ')}>`)
       .join('\n    ')
@@ -43,7 +43,16 @@ export const generateTypesFromSteps = (steps: Step[], printer: Printer): Handler
   const topicsSteps: Record<string, Step[]> = {}
 
   for (const step of steps) {
-    if (isEventStep(step) && step.config.input) {
+    if (isEventStep(step)) {
+      if (!step.config.input) {
+        for (const topic of step.config.subscribes) {
+          if (!topics[topic]) {
+            topics[topic] = 'never'
+          }
+        }
+        continue
+      }
+
       for (const topic of step.config.subscribes) {
         const existingSchema = topicsSchemas[topic]
 
@@ -64,7 +73,7 @@ export const generateTypesFromSteps = (steps: Step[], printer: Printer): Handler
     }
   }
 
-  const generateEmitData = (emit: Emit[]): string => {
+  const generateEmitData = (emit: Emit[], step: Step): string => {
     const emits = emit
       .reduce((acc, emit) => {
         const topic = typeof emit === 'string' ? emit : emit.topic
@@ -72,6 +81,8 @@ export const generateTypesFromSteps = (steps: Step[], printer: Printer): Handler
 
         if (topicType) {
           acc.push(`{ topic: '${topic.replace(/'/g, "\\'")}'; data: ${topicType} }`)
+        } else {
+          printer.printInvalidEmitConfiguration(step, topic)
         }
 
         return acc
@@ -82,7 +93,7 @@ export const generateTypesFromSteps = (steps: Step[], printer: Printer): Handler
   }
 
   for (const step of steps) {
-    const emits = 'emits' in step.config ? generateEmitData(step.config.emits) : 'never'
+    const emits = 'emits' in step.config ? generateEmitData(step.config.emits, step) : 'never'
 
     if (isEventStep(step)) {
       const input = step.config.input ? generateTypeFromSchema(step.config.input as never as JsonSchema) : 'never'

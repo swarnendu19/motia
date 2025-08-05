@@ -4,7 +4,7 @@
  * 
  * Consider adding this file to .prettierignore and eslint ignore.
  */
-import { EventHandler, ApiRouteHandler, ApiResponse, MotiaStream } from 'motia'
+import { EventHandler, ApiRouteHandler, ApiResponse, CronHandler, MotiaStream } from 'motia'
 
 declare module 'motia' {
   interface FlowContextStateStreams {
@@ -12,7 +12,7 @@ declare module 'motia' {
     'message_python': MotiaStream<{ message: string }>
   }
 
-  type Handlers = {
+  interface Handlers {
     'Test State With Python': EventHandler<unknown, { topic: 'test-state-check'; data: { key: string; expected?: unknown } }>
     'TestStateCheck': EventHandler<{ key: string; expected?: unknown }, never>
     'TestStateApiTrigger': ApiRouteHandler<{}, unknown, { topic: 'test-state-python'; data: unknown }>
@@ -27,10 +27,11 @@ declare module 'motia' {
     'CheckStateChange': EventHandler<{ key: string; expected: string }, never>
     'SetStateChange': EventHandler<{ message: string }, { topic: 'check-state-change'; data: { key: string; expected: string } }>
     'ApiTrigger': ApiRouteHandler<{ message: string }, ApiResponse<200, { message: string; traceId: string }>, { topic: 'test-state'; data: { message: string } }>
-    'HandlePeriodicJob': EventHandler<never, never>
+    'PeriodicJobHandled': EventHandler<{ message: string }, { topic: 'tested'; data: never }>
+    'HandlePeriodicJob': CronHandler<{ topic: 'periodic-job-handled'; data: { message: string } }>
     'Tested Event': EventHandler<never, never>
-    'Test Event': EventHandler<never, never>
-    'Test API Endpoint': ApiRouteHandler<Record<string, unknown>, unknown, never>
+    'Test Event': EventHandler<never, { topic: 'tested'; data: never }>
+    'Test API Endpoint': ApiRouteHandler<Record<string, unknown>, unknown, { topic: 'test'; data: never }>
     'CallOpenAiPython': EventHandler<{ message: string; assistantMessageId: string; threadId: string }, never>
     'OpenAiApiPython': ApiRouteHandler<{ message: string; threadId?: string }, ApiResponse<200, { threadId: string }>, { topic: 'openai-prompt-python'; data: { message: string; assistantMessageId: string; threadId: string } }>
   }
