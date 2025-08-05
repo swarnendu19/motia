@@ -4,6 +4,18 @@ import { generateTypeFromSchema } from '../../types/generate-type-from-schema'
 import { JsonSchema } from '../../types/schema.types'
 
 describe('generateTypeFromSchema', () => {
+  it('should generate a type from a schema with z.record', () => {
+    const schema = zodToJsonSchema(z.record(z.string(), z.string())) as JsonSchema
+    const type = generateTypeFromSchema(schema)
+    expect(type).toEqual('Record<string, string>')
+  })
+
+  it('should generate a type from a schema with z.record and z.object', () => {
+    const schema = zodToJsonSchema(z.record(z.string(), z.object({ name: z.string() }))) as JsonSchema
+    const type = generateTypeFromSchema(schema) as string
+    expect(type).toEqual('Record<string, { name: string }>')
+  })
+
   it('should generate a type from a schema', () => {
     const schema = zodToJsonSchema(z.object({ name: z.string() })) as JsonSchema
     const type = generateTypeFromSchema(schema)

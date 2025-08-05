@@ -11,6 +11,7 @@ export type JsonObject = {
   description?: string
   properties: Record<string, JsonSchema>
   required?: string[]
+  additionalProperties?: JsonSchema
 }
 
 export type JsonString = {

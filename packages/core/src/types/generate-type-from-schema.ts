@@ -13,6 +13,9 @@ export const generateTypeFromSchema = (schema: JsonSchema): string => {
       return `${key}${isRequired ? '' : '?'}: ${propType}`
     })
     return props.length > 0 ? `{ ${props.join('; ')} }` : '{}'
+  } else if (schema.type === 'object' && schema.additionalProperties) {
+    const propType = generateTypeFromSchema(schema.additionalProperties)
+    return `Record<string, ${propType}>`
   }
 
   if (schema.type === 'string') {
