@@ -63,6 +63,8 @@ export class PythonBuilder implements StepBuilder {
       this.builder.printer.printStepBuilding(step, 'Adding imported files to archive...')
       const sitePackagesDir = `${process.env.PYTHON_SITE_PACKAGES}-lambda`
 
+      includeStaticFiles([step], this.builder, stepArchiver)
+
       if (packages.length > 0) {
         await Promise.all(
           packages.map(async (packageName) => addPackageToArchive(stepArchiver, sitePackagesDir, packageName)),

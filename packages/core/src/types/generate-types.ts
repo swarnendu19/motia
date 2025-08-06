@@ -17,7 +17,7 @@ export const generateTypesString = (handlers: HandlersMap, streams: StreamsMap):
  * 
  * Consider adding this file to .prettierignore and eslint ignore.
  */
-import { EventHandler, ApiRouteHandler, ApiResponse, CronHandler, MotiaStream } from 'motia'
+import { EventHandler, ApiRouteHandler, ApiResponse, MotiaStream, CronHandler } from 'motia'
 
 declare module 'motia' {
   interface FlowContextStateStreams {
