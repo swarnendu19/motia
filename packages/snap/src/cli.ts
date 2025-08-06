@@ -47,7 +47,7 @@ program
         const skipConfirmation = arg.skipConfirmation ?? false
         const { createInteractive } = require('./create/interactive')
 
-        await createInteractive({ skipConfirmation, context })
+        await createInteractive({ skipConfirmation }, context)
       }
       process.exit(0)
     }),
