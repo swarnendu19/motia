@@ -18,10 +18,7 @@ interface CreateInteractiveArgs {
   skipConfirmation?: boolean
 }
 
-export const createInteractive = async (
-  { skipConfirmation }: CreateInteractiveArgs,
-  context: CliContext
-): Promise<void> => {
+export const createInteractive = async (_args: CreateInteractiveArgs, context: CliContext): Promise<void> => {
   context.log('welcome', (message) => message.append('\n🚀 ' + colors.bold('Welcome to Motia Project Creator!')))
 
   const answers: InteractiveAnswers = await inquirer.prompt([

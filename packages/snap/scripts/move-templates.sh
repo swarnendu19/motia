@@ -8,7 +8,7 @@ copy_templates() {
     mkdir -p "$dest_dir"
 
     # Copy all non folder files while preserving the directory structure
-    find "$src_dir" -type f | while read -r file; do
+    find -L "$src_dir" -type f | while read -r file; do
         # Get the relative path of the file
         rel_path="${file#$src_dir/}"
         # Create the destination directory for the file
@@ -27,6 +27,7 @@ CREATE_TEMPLATES_SRC_DIR="$(dirname "$0")/../src/create/templates"
 CREATE_TEMPLATES_DEST_DIR="$(dirname "$0")/../dist/cjs/create/templates"
 copy_templates "$CREATE_TEMPLATES_SRC_DIR" "$CREATE_TEMPLATES_DEST_DIR"
 
+
 # Copy templates to ESM directory
 CREATE_TEMPLATES_DEST_DIR="$(dirname "$0")/../dist/esm/create/templates"
 copy_templates "$CREATE_TEMPLATES_SRC_DIR" "$CREATE_TEMPLATES_DEST_DIR"
@@ -40,3 +41,11 @@ copy_templates "$CREATE_STEP_TEMPLATES_SRC_DIR" "$CREATE_STEP_TEMPLATES_DEST_DIR
 # Copy step templates to ESM directory
 CREATE_STEP_TEMPLATES_DEST_DIR="$(dirname "$0")/../dist/esm/create-step/templates"
 copy_templates "$CREATE_STEP_TEMPLATES_SRC_DIR" "$CREATE_STEP_TEMPLATES_DEST_DIR"
+
+# Copy docker templates
+DOCKER_TEMPLATES_SRC_DIR="$(dirname "$0")/../src/docker/templates"
+DOCKER_TEMPLATES_CJS_DEST_DIR="$(dirname "$0")/../dist/cjs/docker/templates"
+DOCKER_TEMPLATES_ESM_DEST_DIR="$(dirname "$0")/../dist/esm/docker/templates"
+
+copy_templates "$DOCKER_TEMPLATES_SRC_DIR" "$DOCKER_TEMPLATES_CJS_DEST_DIR"
+copy_templates "$DOCKER_TEMPLATES_SRC_DIR" "$DOCKER_TEMPLATES_ESM_DEST_DIR"

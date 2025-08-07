@@ -42,10 +42,7 @@ const createDockerfile = async () => {
     }
   }
 
-  const dockerfileContent = fs.readFileSync(
-    path.join(__dirname, '../../../../docker', 'templates', 'MotiaDockerSample'),
-    'utf-8',
-  )
+  const dockerfileContent = fs.readFileSync(path.join(__dirname, './templates', 'MotiaDockerSample'), 'utf-8')
 
   try {
     fs.writeFileSync(dockerfilePath, dockerfileContent)
@@ -63,10 +60,7 @@ const createDockerignore = async () => {
     project_name: getProjectIdentifier(process.cwd()),
   })
 
-  const dockerignoreContent = fs.readFileSync(
-    path.join(__dirname, '../../../../docker', 'templates', '.dockerignore.sample'),
-    'utf-8',
-  )
+  const dockerignoreContent = fs.readFileSync(path.join(__dirname, './templates', '.dockerignore.sample'), 'utf-8')
 
   const dockerignorePath = path.join(process.cwd(), '.dockerignore')
 
