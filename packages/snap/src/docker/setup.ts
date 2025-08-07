@@ -2,7 +2,7 @@ import * as fs from 'fs'
 import * as path from 'path'
 import * as readline from 'readline'
 import { printMotiaDockerIntro } from './utils/print-intro'
-import { identifyUser } from '@/utils/analytics'
+import { identifyUser } from '../utils/analytics'
 import { getProjectIdentifier, trackEvent } from '@motiadev/core'
 
 const updatePackageJson = (): void => {
