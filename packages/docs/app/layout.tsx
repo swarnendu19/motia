@@ -80,8 +80,8 @@ export async function generateMetadata(
       ],
     },
     icons: {
-      icon: [{ url: '/favicon.ico' }, { url: '/icon.png', type: 'image/png' }],
-      apple: [{ url: '/apple-icon.png', type: 'image/png' }],
+      icon: [{ url: `/favicon.ico?v=${Date.now()}` }, { url: `/icon.png?v=${Date.now()}`, type: 'image/png' }],
+      apple: [{ url: `/apple-icon.png?v=${Date.now()}`, type: 'image/png' }],
       other: [
         {
           rel: 'mask-icon',

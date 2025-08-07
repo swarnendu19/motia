@@ -9,6 +9,24 @@ const SuperchargeAI = dynamic(() => import('@/components/SuperchargeAI'))
 const Comparison = dynamic(() => import('@/components/Comparison'))
 const CTASection = dynamic(() => import('@/components/CTASection'))
 import { fetchAgents } from '@/lib/fetchAgents'
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  openGraph: {
+    images: [
+      {
+        url: '/og-image-updated.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Motia - Unified Backend Framework for APIs, Events and AI Agents',
+        type: 'image/jpeg',
+      },
+    ],
+  },
+  twitter: {
+    images: ['/og-image-updated.jpg'],
+  },
+};
 
 export default async function Home() {
   const agentsData = await fetchAgents()
