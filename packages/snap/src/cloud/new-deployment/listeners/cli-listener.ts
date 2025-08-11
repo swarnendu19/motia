@@ -57,17 +57,18 @@ export class CliListener implements DeploymentListener {
     this.context.log('build-failed', (message) => {
       message.box(['Unable to deploy to Motia Cloud, please fix the following errors'], 'red')
     })
-    console.log('')
 
     const errorTag = colors.red('✗ [ERROR]')
 
     errors.map((error) => {
       const filePath = colors.gray(`[${error.relativePath}]`)
-      console.log(`${errorTag} ${filePath} ${error.message}`)
+      this.context.log(`build-errors-${error.relativePath}`, (message) => {
+        message.tag('failed').append(`${errorTag} ${filePath} ${error.message}`)
+      })
     })
 
-    console.log(colors.gray('\n--------------------------------\n'))
     this.context.log('build-failed-end', (message) => {
+      message.append(colors.gray('\n--------------------------------\n'))
       message.tag('failed').append('Deployment canceled', 'red')
     })
   }

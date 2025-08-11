@@ -8,7 +8,7 @@ type UploadRequest = {
   mimetype: string
 }
 
-type UploadResult = { presignedUrl: string }
+type UploadResult = { fileInfo: { presignedUrl: string } }
 
 export const upload = async (request: UploadRequest): Promise<UploadResult> => {
   const { data } = await axios.post<UploadResult>(cloudEndpoints.upload, request)

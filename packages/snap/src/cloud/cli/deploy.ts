@@ -1,4 +1,3 @@
-import colors from 'colors'
 import { buildValidation } from '../build/build-validation'
 import { cloudCli } from '../cli'
 import { handler } from '../config-utils'
@@ -17,6 +16,7 @@ cloudCli
   .option('-p, --project-id <id>', 'Project ID')
   .option('-s, --environment-id <id>', 'Environment ID')
   .option('-e, --env-file <path>', 'Path to environment file')
+  .option('-n, --project-name <name>', 'Project name')
   .action(
     handler(async (arg, context) => {
       const listener = new CliListener(context)
@@ -30,11 +30,17 @@ cloudCli
       context.log('build-completed', (message) => message.tag('success').append('Build completed'))
       context.log('creating-deployment', (message) => message.tag('progress').append('Creating deployment...'))
 
-      const deployment = await cloudApi.createDeployment({
-        apiKey: arg.apiKey,
-        versionName: arg.versionName,
-        environmentId: arg.environmentId,
-      })
+      const deployment = await cloudApi
+        .createDeployment({
+          apiKey: arg.apiKey,
+          versionName: arg.versionName,
+          environmentId: arg.environmentId,
+          projectName: arg.projectName,
+        })
+        .catch((error) => {
+          context.log('creating-deployment', (message) => message.tag('failed').append('Failed to create deployment'))
+          throw error
+        })
 
       context.log('creating-deployment', (message) => message.tag('success').append('Deployment created'))
       context.log('uploading-artifacts', (message) => message.tag('progress').append('Uploading artifacts...'))

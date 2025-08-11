@@ -5,6 +5,7 @@ type CreateDeploymentRequest = {
   apiKey: string
   environmentId?: string
   versionName: string
+  projectName?: string
 }
 
 type CreateDeploymentResult = {

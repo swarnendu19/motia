@@ -1,4 +1,3 @@
-import colors from 'colors'
 import { program } from 'commander'
 import { CliContext, handler } from '../config-utils'
 import { CliListener } from '../new-deployment/listeners/cli-listener'

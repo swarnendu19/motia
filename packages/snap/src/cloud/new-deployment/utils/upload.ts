@@ -8,7 +8,9 @@ export const upload = async (deploymentToken: string, fileName: string, onProgre
   const filePath = path.join(distDir, fileName)
   const fileStats = fs.statSync(filePath)
 
-  const { presignedUrl } = await cloudApi.upload({
+  const {
+    fileInfo: { presignedUrl },
+  } = await cloudApi.upload({
     deploymentToken,
     originalName: fileName,
     size: fileStats.size,
