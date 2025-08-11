@@ -137,6 +137,28 @@ export default function Navbar() {
 
               <div className="flex w-fit flex-col gap-[8px]">
                 {/**
+                 * Vercel OSS Link
+                 **/}
+                <Link
+                  href="https://vercel.com/blog/summer-2025-oss-program#motia"
+                  target="_blank"
+                  className="vercel-oss-button gap-2"
+                >
+                  <svg
+                    aria-label="Vercel logomark"
+                    height="15"
+                    role="img"
+                    viewBox="0 0 74 64"
+                    className="fill-current"
+                  >
+                    <path
+                      d="M37.5896 0.25L74.5396 64.25H0.639648L37.5896 0.25Z"
+                      fill="white"
+                    ></path>
+                  </svg>
+                  Vercel OSS 2025
+                </Link>
+                {/**
                  * Discord Link
                  *
                  **/}
@@ -219,13 +241,34 @@ export default function Navbar() {
             </Link>
             {/**
              * Motia Cloud Sign up
-             *
              **/}
             <ModalCTA variant={ModalCTAVariants.CLOUD_NAVBAR} />
           </div>
         </div>
 
         <div className="flex items-center gap-[14px] max-md:gap-[4px]">
+          {/**
+           * Vercel OSS Link
+           **/}
+          <Link
+            href="https://vercel.com/blog/summer-2025-oss-program#motia"
+            target="_blank"
+            className="vercel-oss-button max-md:hidden gap-2"
+          >
+            <svg
+              aria-label="Vercel logomark"
+              height="15"
+              role="img"
+              viewBox="0 0 74 64"
+              className="fill-current"
+            >
+              <path
+                d="M37.5896 0.25L74.5396 64.25H0.639648L37.5896 0.25Z"
+                fill="white"
+              ></path>
+            </svg>
+            Vercel OSS 2025
+          </Link>
           {/**
            * Discord Link
            *

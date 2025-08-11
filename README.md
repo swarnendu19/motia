@@ -1,12 +1,16 @@
+<p align="center">
+  <a href="https://trendshift.io/repositories/14032" style="margin-right:8px;">
+    <img src="https://trendshift.io/api/badge/repositories/14032" alt="Motia" style="width: 250px; height: 55px; margin-right:8px;" width="250" height="55"/>
+  </a>
+  <a href="https://vercel.com/blog/summer-2025-oss-program#motia" target="_blank" style="margin-left:8px;">
+    <img alt="Vercel OSS Program" src="https://vercel.com/oss/program-badge.svg" style="width: 250px; height: 55px; margin-left:8px;" width="250" height="55"/>
+  </a>
+</p>
+
 <a href="https://motia.dev">
   <img src="packages/docs/public/github-readme-banner.png" alt="Motia Banner" width="100%">
 </a>
 
-<p align="center">
-  <a href="https://trendshift.io/repositories/14032">
-    <img src="https://trendshift.io/api/badge/repositories/14032" alt="Motia" style="width: 250px; height: 55px;" width="250" height="55"/>
-  </a>
-</p>
 
 <p align="center">
   <strong>🔥 A Modern Unified Backend Framework for APIs, background jobs, workflows, and Agents 🔥</strong>
@@ -33,7 +37,7 @@
   <a href="https://www.motia.dev/manifesto">💡 Motia Manifesto</a> •
   <a href="https://www.motia.dev/docs/getting-started/quick-start">🚀 Quick Start</a> •
   <a href="https://www.motia.dev/docs/concepts/steps/defining-steps">📋 Defining Steps</a> •
-  <a href="https://motia.dev/docs">📚 Docs</a>
+  <a href="https://www.motia.dev/docs">📚 Docs</a>
 </p>
 
 ---
@@ -52,9 +56,7 @@ Get Motia project up and running in **under 60 seconds**:
 
 ### 1. Bootstrap a New Motia Project
 
-```bash
-npx motia@latest create -i   # runs the interactive terminal
-```
+`npx motia@latest create -i`   # runs the interactive terminal
 
 Follow the prompts to pick a template, project name, and language.
 
@@ -62,9 +64,7 @@ Follow the prompts to pick a template, project name, and language.
 
 Inside your new project folder, launch the dev server:
 
-```bash
-npx motia dev # ➜ http://localhost:3000
-```
+`npx motia dev` # ➜ http://localhost:3000
 
 This spins up the Motia Workbench – a local UI for building, testing & observing your backend in real-time.
 
@@ -74,15 +74,11 @@ This spins up the Motia Workbench – a local UI for building, testing & observi
 
 Open a new terminal tab and run:
 
-```bash
-curl http://localhost:3000/default
-```
+`curl http://localhost:3000/default`
 
 You should see the JSON response:
 
-```json
-{ "message": "Hello World from Motia!" }
-```
+`{ "message": "Hello World from Motia!" }`
 
 ### 4. Explore the Workbench UI
 
@@ -103,8 +99,6 @@ The Workbench is your command centre:
 - ✅ Visual debugger & flow inspector
 - ✅ Built-in observability
 - ✅ Hot-reload for instant feedback
-
----
 
 ### 🧱 The Step Philosophy
 
