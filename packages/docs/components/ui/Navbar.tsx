@@ -248,26 +248,26 @@ export default function Navbar() {
 
         <div className="flex items-center gap-[14px] max-md:gap-[4px]">
           {/**
-           * Vercel OSS Link
+           * Vercel OSS Link - Desktop Only
            **/}
           <Link
             href="https://vercel.com/blog/summer-2025-oss-program#motia"
             target="_blank"
-            className="vercel-oss-button max-md:hidden gap-2"
+            className="vercel-oss-button inline-flex items-center gap-2 max-md:hidden mr-3 leading-none"
           >
             <svg
               aria-label="Vercel logomark"
-              height="15"
+              height="12"
               role="img"
               viewBox="0 0 74 64"
-              className="fill-current"
+              className="fill-current block m-0 p-0"
             >
               <path
                 d="M37.5896 0.25L74.5396 64.25H0.639648L37.5896 0.25Z"
                 fill="white"
               ></path>
             </svg>
-            Vercel OSS 2025
+            <span className="max-lg:hidden">Vercel OSS 2025</span>
           </Link>
           {/**
            * Discord Link
@@ -291,7 +291,9 @@ export default function Navbar() {
             target="_blank"
             className="font-tasa flex cursor-pointer items-center gap-[16px] rounded-[4px] border-[1px] border-white/20 bg-black/40 px-[8px] py-[4px] text-[16px] font-medium tracking-wider text-white transition-colors ease-in-out hover:text-white max-sm:gap-[8px] max-sm:py-[8px] max-sm:text-[14px]"
           >
-            {githubIcon} <p className="sm:-ml-[8px]">Github </p> <p className="text-white/40">|</p>
+            {githubIcon} 
+            <p className="sm:-ml-[8px] max-lg:hidden">Github </p> 
+            <p className="text-white/40 max-lg:hidden">|</p>
             <div className="flex items-center gap-[6px] text-white">
               {starIcon} <p>{stars}</p>
             </div>
