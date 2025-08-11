@@ -41,13 +41,13 @@ export class NodeBuilder implements StepBuilder {
         steps.map((step, index) => `import * as route${index} from '${getStepPath(step)}'`).join('\n'),
       )
       .replace(
-        '// {{routes}}',
+        '// {{router paths}}',
         steps
-          .map((step, index) => {
-            const method = step.config.method.toLowerCase()
-            return `app.${method}('${step.config.path}', router(route${index}.handler, route${index}.config, createContext(context, '${step.config.name}')))`
-          })
-          .join('\n  '),
+          .map(
+            (step, index) =>
+              `'${step.config.method} ${step.config.path}': { stepName: '${step.config.name}', handler: route${index}.handler, config: route${index}.config }`,
+          )
+          .join(',\n'),
       )
 
     const tsRouter = path.join(this.builder.distDir, 'router.ts')
