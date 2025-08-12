@@ -5006,7 +5006,7 @@ Explore these practical examples of Motia in action:
 - [GitHub Integration Workflow](./real-world-use-cases/github-integration-workflow) - Build an automated GitHub issue and PR management system with AI-powered classification and routing
 - [Finance Agent](./real-world-use-cases/finance-agent) - A powerful event-driven financial analysis workflow that combines web search, financial data, and AI analysis
 - [AI Deep Research Agent](./real-world-use-cases/ai-deep-research-agent) - A powerful research assistant that leverages the Motia Framework to perform comprehensive web research
-- [RAG Agent with Docling & Weaviate](./real-world-use-cases/rag-docling-weaviate-agent) - An LLM chat-like question-answering system with RAG for accurate answers from PDF documents
+
 
 Have a great use case to share? [Contribute it here](https://github.com/MotiaDev/motia-examples/tree/main/examples). 
 
@@ -5027,11 +5027,11 @@ Explore these practical examples of Motia in action:
 - [GitHub Integration Workflow](./real-world-use-cases/github-integration-workflow) - Build an automated GitHub issue and PR management system with AI-powered classification and routing
 - [Finance Agent](./real-world-use-cases/finance-agent) - A powerful event-driven financial analysis workflow that combines web search, financial data, and AI analysis
 - [AI Deep Research Agent](./real-world-use-cases/ai-deep-research-agent) - A powerful research assistant that leverages the Motia Framework to perform comprehensive web research
-- [RAG Agent with Docling & Weaviate](./real-world-use-cases/rag-docling-weaviate-agent) - An LLM chat-like question-answering system with RAG for accurate answers from PDF documents
+
 
 Have a great use case to share? [Contribute it here](https://github.com/MotiaDev/motia-examples/tree/main/examples). 
 
--   [rag-docling-weaviate-agent](/llm-docs/real-world-use-cases/rag-docling-weaviate-agent.md): Documentation for rag-docling-weaviate-agent.
+
 ---
 title: RAG Agent using Docling and Weaviate
 description: An LLM chat-like question-answering system with RAG (Retrieval-Augmented Generation) to provide accurate answers from PDF documents. The system leverages Docling to parse and intelligently chunk PDF documents, Weaviate as a vector database to store vectorized chunks, and OpenAI for embeddings and text generation.
@@ -5111,7 +5111,7 @@ import { CodeFetcher } from '../../../components/CodeFetcher'
 
 ## 🏗️ Architecture
 
-![RAG Docling Weaviate Agent](../img/rag-docling-weaviate-workbench.png)
+![RAG Docling Weaviate Agent](../img/rag-example.gif)
 
 ## 🏗️ Technologies
 
@@ -5222,7 +5222,7 @@ Error Response:
 
 
 ## Use Cases
-[rag-docling-weaviate-agent](/llm-docs/real-world-use-cases/rag-docling-weaviate-agent.md): Real world use case
+
 ---
 title: RAG Agent using Docling and Weaviate
 description: An LLM chat-like question-answering system with RAG (Retrieval-Augmented Generation) to provide accurate answers from PDF documents. The system leverages Docling to parse and intelligently chunk PDF documents, Weaviate as a vector database to store vectorized chunks, and OpenAI for embeddings and text generation.
@@ -5302,7 +5302,7 @@ import { CodeFetcher } from '../../../components/CodeFetcher'
 
 ## 🏗️ Architecture
 
-![RAG Docling Weaviate Agent](../img/rag-docling-weaviate-workbench.png)
+![RAG Docling Weaviate Agent](../img/rag-docling-weaviate-agent.png)
 
 ## 🏗️ Technologies
 

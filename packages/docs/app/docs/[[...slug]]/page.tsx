@@ -8,6 +8,7 @@ import { Callout } from 'fumadocs-ui/components/callout'
 import { Tab, Tabs } from 'fumadocs-ui/components/tabs'
 import { Banner } from 'fumadocs-ui/components/banner'
 import { DescriptionTable } from '@/components/DescriptionTable'
+import { LLMCopyButton, ViewOptions } from '@/components/ai/page-actions'
 import { Step, Steps } from 'fumadocs-ui/components/steps'
 import { ImageZoom, ImageZoomProps } from 'fumadocs-ui/components/image-zoom'
 import { TypeTable } from 'fumadocs-ui/components/type-table'
@@ -24,11 +25,20 @@ export default async function Page(props: { params: Promise<{ slug?: string[] }>
   if (!page) notFound()
 
   const MDXContent = page.data.body
+  const slugSegments = params.slug ?? []
+  const docPath = slugSegments.length ? slugSegments.join('/') : 'index'
 
   return (
     <DocsPage toc={page.data.toc} full={page.data.full}>
       <DocsTitle>{page.data.title}</DocsTitle>
-      <DocsDescription>{page.data.description}</DocsDescription>
+      <DocsDescription className="mb-2">{page.data.description}</DocsDescription>
+      <div className="mt-0 flex items-center gap-2">
+        <LLMCopyButton markdownUrl={`/docs/${docPath}.mdx`} />
+        <ViewOptions
+          markdownUrl={`/docs/${docPath}.mdx`}
+          githubUrl={`https://github.com/MotiaDev/motia/blob/main/packages/docs/content/docs/${docPath}.mdx`}
+        />
+      </div>
       <DocsBody>
         <MDXContent
           components={getMDXComponents({

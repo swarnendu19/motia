@@ -31,6 +31,7 @@ const dmMono = DM_Mono({
 })
 
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID ?? 'GTM-P6672CSW'
+const ASSET_VERSION = process.env.NEXT_PUBLIC_ASSET_VERSION ?? '1'
 
 const metaTitle = 'Motia - Unified Backend Framework for APIs, Events and AI Agents'
 const metaDescription =
@@ -80,8 +81,8 @@ export async function generateMetadata(
       ],
     },
     icons: {
-      icon: [{ url: `/favicon.ico?v=${Date.now()}` }, { url: `/icon.png?v=${Date.now()}`, type: 'image/png' }],
-      apple: [{ url: `/apple-icon.png?v=${Date.now()}`, type: 'image/png' }],
+      icon: [{ url: `/favicon.ico?v=${ASSET_VERSION}` }, { url: `/icon.png?v=${ASSET_VERSION}`, type: 'image/png' }],
+      apple: [{ url: `/apple-icon.png?v=${ASSET_VERSION}`, type: 'image/png' }],
       other: [
         {
           rel: 'mask-icon',
@@ -169,7 +170,7 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-touch-fullscreen" content="yes" />
       </head>
-      <body
+      <body suppressHydrationWarning
         className={`${geistSans.variable} ${dmMono.variable} ${tasaExplorer.variable} w-screen overflow-x-hidden antialiased`}
       >
         <PlausibleProvider 

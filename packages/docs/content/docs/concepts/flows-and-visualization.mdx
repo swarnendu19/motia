@@ -64,7 +64,7 @@ After you've defined your flows, you can visualize them in [Motia Workbench](/do
   </Step>
   <Step>
     [Open](http://localhost:3000) Motia Workbench in your browser (typically at `http://localhost:3000` or `http://127.0.0.1:3000`).
-    ![Flow Visualization in Workbench](./../img/demo-workbench.png)
+    ![Flow Visualization in Workbench](./../img/motia-build-your-app.gif)
   </Step>
   <Step>
     **Navigate** to your flow name on the left sidebar and click it. You'll see a visual graph where each [**step**](/docs/concepts/steps/defining-steps) is represented as a node, with connecting lines showing event flow patterns.
