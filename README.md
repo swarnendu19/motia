@@ -1,3 +1,7 @@
+<a href="https://motia.dev">
+  <img src="assets/github-readme-banner.png" alt="Motia Banner" width="100%">
+</a>
+
 <p align="center">
   <a href="https://trendshift.io/repositories/14032" style="margin-right:8px;">
     <img src="https://trendshift.io/api/badge/repositories/14032" alt="Motia" style="width: 250px; height: 55px; margin-right:8px;" width="250" height="55"/>
@@ -6,11 +10,6 @@
     <img alt="Vercel OSS Program" src="https://vercel.com/oss/program-badge.svg" style="width: 250px; height: 55px; margin-left:8px;" width="250" height="55"/>
   </a>
 </p>
-
-<a href="https://motia.dev">
-  <img src="packages/docs/public/github-readme-banner.png" alt="Motia Banner" width="100%">
-</a>
-
 
 <p align="center">
   <strong>🔥 A Modern Unified Backend Framework for APIs, background jobs, workflows, and Agents 🔥</strong>
@@ -56,7 +55,9 @@ Get Motia project up and running in **under 60 seconds**:
 
 ### 1. Bootstrap a New Motia Project
 
-`npx motia@latest create -i`   # runs the interactive terminal
+```bash
+npx motia@latest create -i   # runs the interactive terminal
+```
 
 Follow the prompts to pick a template, project name, and language.
 
@@ -64,7 +65,9 @@ Follow the prompts to pick a template, project name, and language.
 
 Inside your new project folder, launch the dev server:
 
-`npx motia dev` # ➜ http://localhost:3000
+```bash
+npx motia dev # ➜ http://localhost:3000
+```
 
 This spins up the Motia Workbench – a local UI for building, testing & observing your backend in real-time.
 
@@ -74,11 +77,15 @@ This spins up the Motia Workbench – a local UI for building, testing & observi
 
 Open a new terminal tab and run:
 
-`curl http://localhost:3000/default`
+```bash
+curl http://localhost:3000/default
+```
 
 You should see the JSON response:
 
-`{ "message": "Hello World from Motia!" }`
+```json
+{ "message": "Hello World from Motia!" }
+```
 
 ### 4. Explore the Workbench UI
 
