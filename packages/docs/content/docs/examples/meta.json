@@ -3,6 +3,7 @@
   "defaultOpen": true,
   "pages": [
     "sentiment-analysis",
-    "rag-docling-weaviate"
+    "rag-docling-weaviate",
+    "uptime-discord-monitor"
   ]
 }
