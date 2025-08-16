@@ -5,7 +5,7 @@ description: Understand the fundamental concepts behind Motia.
 
 # Building Blocks of Motia
 
-To effectively build and utilize Motia, it's essential to grasp its foundational concepts. Motia workflows are built upon three building blocks that work together to create powerful and flexible automation solutions: **API**, **Event**, **Cron**, **Noop**. They're all represented as **Steps**.
+To effectively build and utilize Motia, it's essential to grasp its foundational concepts. Motia workflows are built upon four building blocks that work together to create powerful and flexible automation solutions: **API**, **Event**, **Cron**, **Noop**. They're all represented as **Steps**.
 
 ## Everything is a Step
 
