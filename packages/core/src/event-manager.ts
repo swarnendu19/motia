@@ -1,9 +1,11 @@
 import { globalLogger } from './logger'
-import { Event, EventManager, Handler, SubscribeConfig, UnsubscribeConfig } from './types'
+import { addEventToQueue, processQueue } from './queue-manager'
+import { Event, EventManager, Handler, SubscribeConfig, UnsubscribeConfig, QueueConfig } from './types'
 
 type EventHandler = {
   filePath: string
   handler: Handler
+  queue?: QueueConfig
 }
 
 export const createEventManager = (): EventManager => {
@@ -14,18 +16,28 @@ export const createEventManager = (): EventManager => {
     const { logger, ...rest } = event
 
     logger.debug('[Flow Emit] Event emitted', { handlers: eventHandlers.length, data: rest, file })
-    eventHandlers.map((eventHandler) => eventHandler.handler(event))
+    eventHandlers.map((eventHandler) => {
+      if (eventHandler.queue?.strategy === 'fifo') {
+        const queueName = eventHandler.queue.messageGroupId || event.topic
+        addEventToQueue(queueName, event, eventHandler.queue)
+        processQueue(queueName, async (event) => {
+          await eventHandler.handler(event)
+        })
+      } else {
+        eventHandler.handler(event)
+      }
+    })
   }
 
   const subscribe = <TData>(config: SubscribeConfig<TData>) => {
-    const { event, handlerName, handler, filePath } = config
+    const { event, handlerName, handler, filePath, queue } = config
 
     if (!handlers[event]) {
       handlers[event] = []
     }
 
     globalLogger.debug('[Flow Sub] Subscribing to event', { event, handlerName })
-    handlers[event].push({ filePath, handler: handler as Handler })
+    handlers[event].push({ filePath, handler: handler as Handler, queue })
   }
 
   const unsubscribe = (config: UnsubscribeConfig) => {

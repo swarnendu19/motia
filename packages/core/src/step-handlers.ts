@@ -30,6 +30,7 @@ export const createStepHandlers = (motia: Motia): MotiaEventManager => {
         filePath,
         event: subscribe,
         handlerName: step.config.name,
+        queue: config.queue,
         handler: async (event) => {
           const { data, traceId } = event
           const logger = event.logger.child({ step: step.config.name })

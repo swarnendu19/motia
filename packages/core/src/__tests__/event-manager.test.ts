@@ -53,4 +53,27 @@ describe('EventManager', () => {
     expect(mockHandler1).toHaveBeenCalledWith(testEvent)
     expect(mockHandler2).toHaveBeenCalledWith(testEvent)
   })
+
+  it('should be able to subscribe to a fifo queue', (done) => {
+    const eventManager = createEventManager()
+    const testEvent = createEvent({ topic: 'TEST_EVENT' })
+    const mockHandler = jest.fn()
+
+    eventManager.subscribe({
+      event: 'TEST_EVENT',
+      handlerName: 'testHandler',
+      filePath: 'test.ts',
+      handler: mockHandler,
+      queue: {
+        strategy: 'fifo',
+      },
+    })
+
+    eventManager.emit(testEvent)
+
+    setTimeout(() => {
+      expect(mockHandler).toHaveBeenCalledWith(testEvent)
+      done()
+    }, 100)
+  })
 })

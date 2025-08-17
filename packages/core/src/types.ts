@@ -28,6 +28,12 @@ export type EventHandler<TInput, TEmitData> = (input: TInput, ctx: FlowContext<T
 
 export type Emit = string | { topic: string; label?: string; conditional?: boolean }
 
+export type QueueConfig = {
+  strategy: 'simple' | 'fifo'
+  messageGroupId?: string
+  messageDeduplicationId?: string
+}
+
 export type EventConfig = {
   type: 'event'
   name: string
@@ -42,6 +48,7 @@ export type EventConfig = {
    * Needs to be relative to the step file.
    */
   includeFiles?: string[]
+  queue?: QueueConfig
 }
 
 export type NoopConfig = {
@@ -150,6 +157,7 @@ export type SubscribeConfig<TData> = {
   handlerName: string
   filePath: string
   handler: Handler<TData>
+  queue?: QueueConfig
 }
 
 export type UnsubscribeConfig = {
