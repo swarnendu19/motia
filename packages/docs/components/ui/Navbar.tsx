@@ -18,7 +18,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
 
   //Hook to get live star count
-  const stars = useGithubStars()
+  const { starCount, isLoading } = useGithubStars()
 
   //Set scroll value to triger the animation
   useEffect(() => {
@@ -181,7 +181,14 @@ export default function Navbar() {
                 >
                   {githubIcon} <p>Contribute on Github </p> <p className="max-md:hidden">|</p>
                   <div className="flex items-center gap-[6px] text-white max-md:hidden">
-                    {starIcon} <p>{stars}</p>
+                    {starIcon} 
+                    <p>
+                      {isLoading ? (
+                        <span className="inline-block animate-pulse">----</span>
+                      ) : (
+                        starCount || '----'
+                      )}
+                    </p>
                   </div>
                 </Link>
               </div>
@@ -295,7 +302,14 @@ export default function Navbar() {
             <p className="sm:-ml-[8px] max-lg:hidden">Github </p> 
             <p className="text-white/40 max-lg:hidden">|</p>
             <div className="flex items-center gap-[6px] text-white">
-              {starIcon} <p>{stars}</p>
+              {starIcon} 
+              <p>
+                {isLoading ? (
+                  <span className="inline-block animate-pulse">----</span>
+                ) : (
+                  starCount || '----'
+                )}
+              </p>
             </div>
           </Link>
           <HamburgerMenu />
