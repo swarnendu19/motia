@@ -43,7 +43,7 @@ export async function generateMetadata(_props: never, _parent: ResolvingMetadata
   const proto = host.startsWith('localhost') ? 'http' : 'https'
   const base = `${proto}://${host}`
 
-  const ogImage = `${base}/og-image-updated.jpg`
+  const ogImage = `${base}/og-image-updated-new.jpg`
 
   return {
     metadataBase: new URL(base),
@@ -174,7 +174,7 @@ export default function RootLayout({
             name: metaTitle,
             description: metaDescription,
             url: 'https://motia.dev',
-            image: ['https://motia.dev/og-image-updated.jpg'],
+            image: ['https://motia.dev/og-image-updated-new.jpg'],
           })}
         </script>
       </head>
