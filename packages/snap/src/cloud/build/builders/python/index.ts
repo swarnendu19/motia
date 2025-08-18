@@ -97,13 +97,9 @@ export class PythonBuilder implements StepBuilder {
         .replace(/\//g, '.')
     }
 
-    const toFastAPI = (path: string) => {
-      return path.replace(/:(\w+)/g, '{${1}}')
-    }
-
     const zipName = 'router-python.zip'
     const archive = new Archiver(path.join(distDir, zipName))
-    const dependencies = ['fastapi', 'uvicorn', 'pydantic', 'pydantic_core', 'uvloop', 'starlette', 'typing_inspection']
+    const dependencies = ['uvicorn', 'pydantic', 'pydantic_core', 'uvloop', 'starlette', 'typing_inspection']
     const lambdaSitePackages = `${process.env.PYTHON_SITE_PACKAGES}-lambda`
     await Promise.all(
       dependencies.map(async (packageName) => addPackageToArchive(archive, lambdaSitePackages, packageName)),
@@ -125,18 +121,13 @@ export class PythonBuilder implements StepBuilder {
           .join('\n'),
       )
       .replace(
-        '# {{routes}}',
+        '# {{router paths}}',
         steps
-          .map((step, index) => {
-            const method = step.config.method.toLowerCase()
-            return [
-              `@app.${method}('${toFastAPI(step.config.path)}')`,
-              `async def handler_${index}(request: Request, response: Response):`,
-              `    handler_route = await router(route${index}_handler, route${index}_config, create_context(context, '${step.config.name}'))`,
-              `    return await handler_route(request, response)`,
-            ].join('\n    ')
-          })
-          .join('\n\n    '),
+          .map(
+            (step, index) =>
+              `'${step.config.method} ${step.config.path}': RouterPath('${step.config.name}', '${step.config.method.toLowerCase()}', route${index}_handler, route${index}_config)`,
+          )
+          .join(',\n    '),
       )
 
     archive.append(file, 'router.py')
