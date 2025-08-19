@@ -1,7 +1,7 @@
 {
   "name": "@motiadev/tutorial",
   "description": "Motia tutorial package, provides a step-by-step guide to learn how to use Motia's ecosystem through Workbench.",
-  "version": "0.0.1",
+  "version": "0.5.11-beta.119",
   "license": "MIT",
   "type": "module",
   "main": "./dist/index.js",
