@@ -34,6 +34,7 @@ program
   .option('-c, --cursor', 'Copy .cursor folder from template')
   .option('-i, --interactive', 'Use interactive prompts to create project')
   .option('-y, --skip-confirmation', 'Skip confirmation prompt')
+  .option('-d, --skip-tutorial', 'Skip the motia tutorial', false)
   .action(
     handler(async (arg, context) => {
       if (arg.name || arg.template || arg.cursor) {
@@ -43,7 +44,8 @@ program
           type: 'confirm',
           name: 'disableTutorial',
           message: 'Do you wish to disable the motia tutorial?',
-          default: false,
+          default: arg.skipTutorial,
+          when: () => arg.skipTutorial === false,
         })
 
         await create({
